@@ -12,7 +12,8 @@ namespace StoreForVideos.Models
 {
     public class MovieModel
     {   
-        public int MovieID { get; set; }   
+        [Key]
+        public int Id { get; set; }   
         public string MovieName { get; set; }   
         public string MovieDescription { get; set; } 
         public int GenreID { get; set; }

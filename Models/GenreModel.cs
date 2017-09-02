@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StoreForVideos.Models
 {
-    public class GenresModel
+    public class GenreModel
     {
-        public int GenreID { get; set; }
+        public int Id { get; set; }
         public string GenreName { get; set; }
     }
 }

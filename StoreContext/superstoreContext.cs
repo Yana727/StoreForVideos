@@ -2,12 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System.Collections.Generic;  
+using StoreForVideos.Models;
 
 namespace StoreForVideos
 {
     public partial class superstoreContext : DbContext
     {
         public DbSet<RentalRecordModel> RentalRecordModel {get; set;}//dont have to put it here
+        public DbSet<GenreModel> GenreModel {get; set;}
+        public DbSet<MovieModel> MovieModel { get; set; }
+        public DbSet<CustomerModel> CustomerModel { get; set;}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

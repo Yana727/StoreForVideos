@@ -13,8 +13,9 @@ namespace StoreForVideos
 {
     public class RentalRecordModel
     {   
+        [Key]
         public int Id {get; set;} //primary key
-        public int RentalID { get; set; }
+        public int RentalID { get; set; } // change and migrate
         public int MovieID { get; set; }
         public int CustomerID { get; set; }
         public DateTime RentalDate { get; set; }

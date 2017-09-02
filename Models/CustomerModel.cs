@@ -10,7 +10,7 @@ namespace StoreForVideos.Models
 {
     public class CustomerModel
     {  
-        public int CustomerID { get; set; } 
+        public int Id { get; set; } 
         public string  CustomerName { get; set; }
         public int CustomerPhone { get; set; }
     }
