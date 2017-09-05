@@ -17,5 +17,6 @@ namespace StoreForVideos.Models
         public string MovieName { get; set; }   
         public string MovieDescription { get; set; } 
         public int GenreID { get; set; }
+        public bool CheckedOut { get; set; }
     }
 }

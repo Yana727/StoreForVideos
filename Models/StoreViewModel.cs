@@ -1,6 +1,6 @@
 using System;
 
-namespace StoreForVideos.Model
+namespace StoreForVideos.Model // should I have created this via (33:33)Select? 
 {
     public class StoreViewModel
     {   

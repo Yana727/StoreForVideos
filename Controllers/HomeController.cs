@@ -14,9 +14,9 @@ namespace StoreForVideos.Controllers
         private readonly superstoreContext _context; //database
         public HomeController(superstoreContext context)
         {
-            _context = context;
+            this._context = context;
         }
-        public ActionResult Seed()
+        public IActionResult Seed()
         {
             // Create genres, movies, and customers for our database.
             var seedGenre = new List<GenreModel>(){
@@ -73,7 +73,7 @@ namespace StoreForVideos.Controllers
                 }
             };
 
-            // Adding all of the dumby data to our database
+            // Adding all of the dummy data to our database
             seedCustomers.ForEach(person => _context.CustomerModel.Add(person));
             seedGenre.ForEach(genre => _context.GenreModel.Add(genre));
             seedMovies.ForEach(vid => _context.MovieModel.Add(vid));
@@ -88,7 +88,7 @@ namespace StoreForVideos.Controllers
         {
             return View(new List<MovieModel>());
         }
-
+    
         public IActionResult Movies()
         {
             return View(_context.MovieModel.ToList());

@@ -11,9 +11,10 @@ using System;
 namespace StoreForVideos.Migrations
 {
     [DbContext(typeof(superstoreContext))]
-    partial class superstoreContextModelSnapshot : ModelSnapshot
+    [Migration("20170905233048_MovedCheckedOut")]
+    partial class MovedCheckedOut
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
