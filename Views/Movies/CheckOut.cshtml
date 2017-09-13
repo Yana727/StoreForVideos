@@ -1,17 +1,17 @@
   @model StoreForVideos.Models.MovieModel
 
 @{
-    ViewData["Title"] = "Create";//Can I leave "create out and nothing else?"
+    ViewData["Title"] = "Create"; // creating the check in/check out button on the Movies screen 
 }
   
-  @foreach(item in MovieModel){
-
-  @if (item.CheckedOut)
-                {
-                 <a asp-action="CheckOut" asp-route-id="@item.Movie">Check out</a> <span>|</span>     
-                }
-                else
-                {
-                 <a asp-action="CheckIn" asp-route-id="@item.Movie">Check in</a> <span>|</span>
-                }
+  @foreach(var item in MovieModel)
+              {
+        @if (item.CheckedOut)
+              {
+               <a asp-action="CheckOut" asp-route-id="@item.Movie">Check out</a> <span>|</span>     
+              }
+              else
+              {
+               <a asp-action="CheckIn" asp-route-id="@item.Movie">Check in</a> <span>|</span>
+              }
 }

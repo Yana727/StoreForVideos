@@ -25,6 +25,7 @@ namespace StoreForVideos.Controllers
             return View(await _context.MovieModel.ToListAsync());
         }
 
+
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -64,6 +65,12 @@ namespace StoreForVideos.Controllers
             }
             return View(movieModel);
         }
+        //GET: Checked in/Checked out//Added by ME today 9/6
+
+        public async Task<IActionResult>CheckOut (int? id) //USE THIS !
+        {
+
+        }
 
         // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -90,14 +97,14 @@ namespace StoreForVideos.Controllers
         {
             if (id != movieModel.Id)
             {
-                return NotFound();
+                return NotFound();                //USE THIS CODE TO DO THE CHECK OUT LOGIC
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(movieModel);
+                    _context.Update(movieModel); //something else 
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
