@@ -34,9 +34,9 @@ namespace StoreForVideos.Controllers
                 return NotFound();
             }
 
-            var movieModel = await _context.MovieModel
+            var movieModel = await _context.MovieModel  //finds the movie
                 .SingleOrDefaultAsync(m => m.Id == id);
-            if (movieModel == null)
+            if (movieModel == null)           //render the movie 
             {
                 return NotFound();
             }
@@ -66,13 +66,37 @@ namespace StoreForVideos.Controllers
             return View(movieModel);
         }
         //GET: Checked in/Checked out//Added by ME today 9/6
-
         public async Task<IActionResult>CheckOut (int? id) //USE THIS !
         {
+            var movieModel = await _context.MovieModel  //using id to find the movie 
+                .SingleOrDefaultAsync(m => m.Id == id);
+            
+            // Update that movie as checkedout
+            movieModel.CheckedOut = true;
 
+            _context.Update(movieModel);
+            await _context.SaveChangesAsync();
+            
+            // Then redirect them back to the list of movies
+            return RedirectToAction(nameof(Index));
+        }
+             public async Task<IActionResult>CheckIn (int? id) //
+        {
+            var movieModel = await _context.MovieModel  //using id to find the movie 
+                .SingleOrDefaultAsync(m => m.Id == id);
+            
+            // Update that movie as checked in
+            movieModel.CheckedOut = false;
+
+            _context.Update(movieModel);
+            await _context.SaveChangesAsync();
+            
+            // Then redirect them back to the list of movies
+            return RedirectToAction(nameof(Index));
         }
 
-        // GET: Movies/Edit/5
+
+        // GET: Movies/Edit/5 
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
